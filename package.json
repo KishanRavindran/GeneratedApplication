@@ -1,0 +1,24 @@
+{
+  "name": "Ionic-app-base",
+  "version": "1.0.0",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": false,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.0.0",
+    "@angular/router": "^5.2.11",
+    "@types/node": "^10.12.18",
+    "@uirouter/angularjs": "^1.0.20",
+    "ag-grid": "^18.1.2",
+    "geppetto_ionic_android": "^1.0.0",
+    "ng2-bs3-modal": "^0.15.0",
+    "ng2-toastr": "^4.1.2"
+  }
+}

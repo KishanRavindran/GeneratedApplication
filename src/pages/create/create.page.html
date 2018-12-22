@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar color="navbar-header">
+        <button ion-button menuToggle icon-only>
+            <ion-icon name="menu" color="primary">
+            </ion-icon>
+        </button>
+        <ion-title>
+            createLabel
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-item>
+<label>
+Name
+</label>
+</ion-item>
+
+<ion-item>
+<ion-input placeholder="Input" [(ngModel)]='student.name'></ion-input>
+</ion-item>
+
+<ion-item>
+<label>
+age
+</label>
+</ion-item>
+
+<ion-item>
+<ion-input placeholder="Input" [(ngModel)]='student.age'></ion-input>
+</ion-item>
+
+<ion-item>
+<label>
+Date of Birth
+</label>
+</ion-item>
+
+<ion-item>
+<ion-label>Date</ion-label>
+<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]='student.dob'></ion-datetime>
+</ion-item>
+
+<button ion-button full (click)="createStudent()">
+save</button>
+
+</ion-content>

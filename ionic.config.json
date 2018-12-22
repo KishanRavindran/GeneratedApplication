@@ -1,0 +1,15 @@
+{
+  "name": "ionic2-app-base",
+  "integrations": {},
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/auth",
+      "proxyUrl": "http://localhost:8080/auth"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost:8080/api"
+    }
+  ]
+}

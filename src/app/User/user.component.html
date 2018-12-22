@@ -1,0 +1,142 @@
+<section>
+    <div class="container">
+        <div class="listuser" *ngIf="listuser">
+            <div class="row gridlabel">
+                <label style="font-size: 30px;">List of Users</label>
+                <div class="pull-right">
+                    <button mat-raised-button color="primary" (click)="createuser()">Create</button>
+                </div>
+            </div>
+            <br>
+            <div class="row tablegrid" style="padding-top: 5px">
+
+                <ag-grid-angular #TableGrid style="width: 100%; height: 287px;" class="ag-fresh" [gridOptions]="TableGridOptions" [rowData]="listofusers"></ag-grid-angular>
+
+            </div>
+            <p style="margin-left: -25px;">
+                <strong>
+                    <span>Options selected : </span>
+                    <span style="color:red">{{selectedusers.length}}</span>
+                </strong>
+            </p>
+            <div class="row pull-right">
+                <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+                <button mat-raised-button color="primary" (click)="cancelList()">Cancel</button>
+            </div>
+        </div>
+        <div class="container" *ngIf="create">
+            <h3>Create User Form</h3>
+            <br>
+            <br>
+
+            <div class="AddRole pull-right">
+                <button mat-raised-button color="primary" (click)="openrole()">Create New Role</button>
+            </div>
+
+            <div class="row" style="margin-top: 57px">
+                <div class="col-lg-1 col-lg-offset-2">
+                    <label>FirstName: </label>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2">
+                    <mat-form-field>
+                        <input matInput placeholder="Firstname" [(ngModel)]="users.firstname">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-2">
+                    <label>LastName: </label>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2">
+                    <mat-form-field>
+                        <input matInput placeholder="LastName" [(ngModel)]="users.lastname">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-2">
+                    <label>Username: </label>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2">
+                    <mat-form-field>
+                        <input matInput placeholder="Username" [(ngModel)]="users.username">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-2">
+                    <label>Password: </label>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2">
+                    <mat-form-field>
+                        <input matInput placeholder="Password" [(ngModel)]="users.password">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-2 email">
+                    <label>Email: </label>
+                </div>
+
+                <div class="col-lg-5 col-lg-offset-2">
+                    <mat-form-field>
+                        <input matInput placeholder="email" [(ngModel)]="users.email">
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-2">
+                    <label>Role: </label>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2">
+                    <mat-form-field>
+                        <mat-select [placeholder]='Role' [(ngModel)]="users.role">
+                            <mat-option *ngFor="let role of listofauthority" [value]="role.role">
+
+                                {{role.id}}.{{role.role}}
+                            </mat-option>
+
+                        </mat-select>
+
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <br>
+            <div class="pull-right">
+                <button mat-raised-button color="primary" (click)="saveUser()">Save</button>
+                <button mat-raised-button color="primary" (click)="createcancel()">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<modal #modalSFU class="mailactive-model">
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">ADD Role</h4>
+    </modal-header>
+    <modal-body>
+        <div class="row roleadd">
+            <div class="col-lg-2 col-lg-offset-2 roleadd">
+                <label>Role: </label>
+            </div>
+            <div class="col-lg-4 col-lg-offset-1">
+
+                <input style="border: 0px;border-bottom: 1px solid black;outline: none;" placeholder="Enter Role" [(ngModel)]="users.newrole">
+
+            </div>
+        </div>
+    </modal-body>
+    <modal-footer>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modalSFU.dismiss()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="saveNewRole()">Save</button>
+    </modal-footer>
+</modal>
